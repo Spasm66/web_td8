@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <title>Images</title>
+    <style>
+      img {
+        width: 100px;
+        height: 100px;
+      }
+      .container {
+        display: flex;
+        justify-content: center;
+      }
+      .container img {
+        margin-right: 10px;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img src="/public/logo.png">
+    </div>
+    <div class="container">Voici mes photo</div>
+    <div class="container">
+      <a href="/page-image/3"><img src="/public/images/image3_small.jpg"></a>
+      <a href="/page-image/4"><img src="/public/images/image4_small.jpg"></a>
+      <a href="/page-image/5"><img src="/public/images/image5_small.jpg"></a>
+    </div>
+    <h1 class="container">Mon Mur d'Images</h1>
+    <a class="container" href="/images">Toutes les images</a>
+  </body>
+</html>

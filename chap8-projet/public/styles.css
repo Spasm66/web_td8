@@ -1,0 +1,17 @@
+h1 {
+    color: blue;
+}
+
+img {
+    max-width: 600px;
+}
+.container {
+    display: flex;
+    justify-content: center;
+}
+.container img{
+    margin-right: 10px;
+}
+.container a{
+    text-align: center;
+}

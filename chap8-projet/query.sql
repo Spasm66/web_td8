@@ -1,0 +1,11 @@
+SELECT * FROM images;
+SELECT * FROM images ORDER BY Date DESC;
+SELECT * FROM images ORDER BY Date DESC LIMIT 3;
+SELECT * FROM images WHERE Date > '2022-01-01';
+SELECT * FROM images WHERE Likes > 10;
+SELECT * FROM images, orientations WHERE orientations.Orientation LIKE 'portrait' AND orientations.IdOrientation = images.IdOrientation;
+SELECT images.Nom, prenom, auteurs.Nom, Likes FROM images, auteurs WHERE Prenom = 'Marcel' AND auteurs.Nom = 'Duchamp' AND auteurs.IdAuteur = images.IdAuteur;
+SELECT images.Nom, prenom, auteurs.Nom, Orientation FROM images, auteurs, orientations WHERE Prenom = 'Marcel' AND auteurs.Nom = 'Duchamp' AND auteurs.IdAuteur = images.IdAuteur AND Orientation = 'portrait' AND orientations.IdOrientation = images.IdOrientation;
+SELECT SUM(Likes) FROM images, auteurs WHERE Prenom = 'Marcel' AND auteurs.Nom = 'Duchamp' AND auteurs.IdAuteur = images.IdAuteur;
+SELECT * FROM commentaires WHERE IdImage = 28;
+SELECT Nom, Likes FROM images ORDER BY Likes DESC LIMIT 1;
