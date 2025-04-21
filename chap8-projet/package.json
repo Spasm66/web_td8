@@ -1,5 +1,5 @@
 {
-  "name": "chap7-projet",
+  "name": "n",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
@@ -8,8 +8,10 @@
   },
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
-    "pg": "^8.14.1"
-  }
+    "pg": "^8.14.1",
+    "postgresql": "^0.0.1"
+  },
+  "devDependencies": {},
+  "description": ""
 }

@@ -6,6 +6,6 @@ SELECT * FROM images WHERE Likes > 10;
 SELECT * FROM images, orientations WHERE orientations.Orientation LIKE 'portrait' AND orientations.IdOrientation = images.IdOrientation;
 SELECT images.Nom, prenom, auteurs.Nom, Likes FROM images, auteurs WHERE Prenom = 'Marcel' AND auteurs.Nom = 'Duchamp' AND auteurs.IdAuteur = images.IdAuteur;
 SELECT images.Nom, prenom, auteurs.Nom, Orientation FROM images, auteurs, orientations WHERE Prenom = 'Marcel' AND auteurs.Nom = 'Duchamp' AND auteurs.IdAuteur = images.IdAuteur AND Orientation = 'portrait' AND orientations.IdOrientation = images.IdOrientation;
-SELECT SUM(Likes) FROM images, auteurs WHERE Prenom = 'Marcel' AND auteurs.Nom = 'Duchamp' AND auteurs.IdAuteur = images.IdAuteur;
+SELECT SUM(Likes) FROM images, auteurs WHERE Prenom = 'Duchamp' AND auteurs.Nom = 'Marcel' AND auteurs.IdAuteur = images.IdAuteur;
 SELECT * FROM commentaires WHERE IdImage = 28;
 SELECT Nom, Likes FROM images ORDER BY Likes DESC LIMIT 1;
