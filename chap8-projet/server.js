@@ -90,7 +90,7 @@ server.on('request', async (req, res) => {
                 </style>
             </head>
             <body>
-                <a href="public/index.html">Index</a>
+                <a href="/index">Index</a>
                 <h1 class="container">Le mur d'images</h1>
                 <a href="public/image-description.html">Mettre un commentaire !</a>
                 <div class="container">`;
