@@ -1,5 +1,5 @@
 {
-  "name": "n",
+  "name": "pg_for_js",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
@@ -9,9 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "pg": "^8.14.1",
+    "pg": "^8.16.0",
     "postgresql": "^0.0.1"
   },
-  "devDependencies": {},
   "description": ""
 }

@@ -1,18 +1,20 @@
 const fs = require('fs');
 const path = require('path');
 const host = 'localhost';
-const port = 8081;
+const port = 8080;
 const http = require('http');
 const server = http.createServer();
 const { Client } = require('pg');
 const querystring = require('querystring');
 
 const client = new Client({
-    user: 'spasm',
-    password: 'root',
-    database: 'application-image',
+    user: 'lopfeiffer',
+    password: 'Loris>47200',
+    database: 'lopfeiffer',
+    host: 'pgsql',
     port: 5432
 });
+
 
 client.connect()
     .then(() => {
@@ -24,6 +26,7 @@ client.connect()
     });
 
 server.on('request', async (req, res) => {
+    
     if (req.url.startsWith('/public/')) {
         try {
             const fichier = fs.readFileSync('.' + req.url);
@@ -63,6 +66,7 @@ server.on('request', async (req, res) => {
                 html += `<a href="/page-image/${row.idimage}"><img src="/public/images/${row.fichier.split(".")[0]}_small.jpg"></a>`;
             });
         } catch (err) {
+            console.log(err);
             res.end('erreur: ressource introuvable');
         }
         html += `</div>
@@ -199,9 +203,10 @@ server.on('request', async (req, res) => {
         html += `<div style="display: flex; flex-direction: column; align-items: center; margin-top: 20px;">
                     <form action="/image-description" method="post">
                         <input type="hidden" name="nb_image" value="${id}">
-                        <input type="text" name="description">
+                        <input type="text" id="txt" name="description">
                         <input type="submit" value="envoyer">
                     </form>
+					<script type="text/javascript" src="/public/page-image.js"></script>
                 </div>`;
 
         coms.rows.forEach((row) => {
@@ -237,14 +242,17 @@ server.on('request', async (req, res) => {
             const parsedData = querystring.parse(donne);
             let com = parsedData.description
             let key = parsedData.nb_image;
-            try {
+            if (!com.includes("DROP")) {
+                try {
                 await client.query('INSERT INTO commentaires (idimage, texte) VALUES ($1, $2)', [key, com]);
                 res.writeHead(302, { 'Location': `/page-image/${key}` });
                 res.end();
-            } catch (error) {
-                console.error('Error executing query', error);
-                res.end("Error saving comment");
+                } catch (error) {
+                    console.error('Error executing query', error);
+                    res.end("Error saving comment");
+                }
             }
+            
         });
     }
 });
